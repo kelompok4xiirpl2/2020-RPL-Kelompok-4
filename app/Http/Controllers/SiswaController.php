@@ -11,5 +11,10 @@ class SiswaController extends Controller
     	$data_siswa = \App\Siswa::all();
     	return view('siswa.index',['data_siswa' => $data_siswa ]);
     }
+    public function i()
+    {
+    	$data = \App\Announcement::all();
+		return view('layouts.dashboard', compact('data'));
+    }
 }
   

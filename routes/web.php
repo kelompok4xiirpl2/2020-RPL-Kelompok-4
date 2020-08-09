@@ -21,3 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/siswa', 'SiswaController@index')->name('siswa');
+Route::get('/dashboard','SiswaController@i')->name('dashboard');
+Route::get('/free','SiswaController@i');
+
