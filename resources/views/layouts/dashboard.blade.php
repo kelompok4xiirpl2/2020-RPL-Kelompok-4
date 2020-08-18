@@ -1,28 +1,14 @@
 @extends('layouts.master')
+
 @section('content1')
-<body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
 
-  <!-- Navbar -->
-  
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Sistem Pengumuman</h1> 
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+               
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -37,16 +23,22 @@
               <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Table Pengumuman</h3>
+
+                <div class="card-tools">
+                <a href="announcement/create" align="right" class="btn btn-success">Tambah</a>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table class="table table-bordered">
                   <thead>                  
                     <tr>
-                      <th style="width: 10px">Tanggal</th>
+                      <th>Tanggal</th>
                       <th>Judul Pengumuman</th>
-                      <th></th>
-                      <th style="width: 40px">Label</th>
+                      <th>nama guru</th>
+                      <th>mata pelajaran</th>
+                     
+                      <th>ACTION</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -54,14 +46,15 @@
                     @foreach($data as $a)
                     <?php $no++ ?>
                     <tr>
-                      <td>{{$no}}</td>
+                      <td>{{$a->created_at}}</td>
                       <td>{{$a->title}}</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-danger">55%</span></td>
+                      <td>{{$a->teacher}}</td>
+                      <td>{{$a->subject}}</td>
+                      
+                      <td><a href="announcement/{{$a->id}}/detail" class="btn btn-primary" type="Button">DETAIL</a>
+                     <a class="btn btn-danger" type="Button" href="announcement/{{$a->id}}/delete">DELETE</a>
+                     <a class="btn btn-danger" type="Button" href="announcement/{{$a->id}}/edit">EDIT</a>
+                    </td>
                     </tr>
                    @endforeach
                   </tbody>

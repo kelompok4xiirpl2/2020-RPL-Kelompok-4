@@ -13,12 +13,12 @@ class CreateSiswaTable extends Migration
      */
     public function up()
     {
-        Schema::create('siswa', function (Blueprint $table) {
+        Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->string('name',25);
-            $table->string('kelas',25);
-            $table->string('jurusan',25);
-            $table->string('jenis_jelamin',25);
+            $table->string('class',25);
+            $table->string('major',25);
+            $table->string('gender',25);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSiswaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('siswa');
+        Schema::dropIfExists('siswas');
     }
 }

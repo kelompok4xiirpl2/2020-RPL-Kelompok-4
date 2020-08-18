@@ -13,14 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/siswa', 'SiswaController@index')->name('siswa');
-Route::get('/dashboard','SiswaController@i')->name('dashboard');
-Route::get('/free','SiswaController@i');
+Route::get('/','AnnouncementController@index')->middleware('auth');
+Route::get('/announcement/{id}/detail','AnnouncementController@detail')->middleware('auth');
 
+Route::get('/announcement/create','AnnouncementController@create')->middleware('auth');
+Route::post('/announcement/create','AnnouncementController@store')->middleware('auth');
+
+Route::get('/announcement/{id}/delete','AnnouncementController@delete')->middleware('auth');
+
+Route::get('/announcement/{id}/edit','AnnouncementController@edit')->middleware('auth');
+Route::post('/announcement/{id}/edit','AnnouncementController@update')->middleware('auth');
