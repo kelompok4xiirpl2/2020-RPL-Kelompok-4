@@ -33,21 +33,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="/class" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Detail Profil</p>
+                  <p>Manage Class</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="./questions" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kelas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p></p>
+                  <p>View Questions</p>
                 </a>
               </li>
             </ul>

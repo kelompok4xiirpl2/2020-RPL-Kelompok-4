@@ -1,10 +1,10 @@
- <?php
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSiswaTable extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,22 @@ class CreateSiswaTable extends Migration
      */
     public function up()
     {
-        Schema::create('siswas', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('name',25);
-            $table->string('class',25);
-            $table->string('major',25);
-            $table->string('gender',25);
+            $table->string('question');
+            $table->string('id_users');
+            $table->string('answer');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations     *
+     * Reverse the migrations.
+     *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('siswas');
+        Schema::dropIfExists('questions');
     }
 }

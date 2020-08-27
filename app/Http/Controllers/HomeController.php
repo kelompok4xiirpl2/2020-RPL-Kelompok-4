@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      return redirect('');
+        $data = \App\Announcement::all();
+        return view('layouts.dashboard', compact('data'));
     }
 }

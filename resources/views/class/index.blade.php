@@ -4,7 +4,7 @@
 
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">ANNOUNCEMENT SYSTEM</h1> 
+            <h1 class="m-0 text-dark">MANAGE CLASSES</h1> 
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -22,10 +22,10 @@
         <!-- Small boxes (Stat box) -->
               <div class="card">
               <div class="card-header">
-                <h3 class="card-title">TABLE ANNOUNCEMENT</h3>
+                <h3 class="card-title">TABLE CLASSES</h3>
 
                 <div class="card-tools">
-                <a href="announcement/create" align="right" class="btn btn-success">ADD ANNOUNCEMENT</a>
+                <a href="class/create" align="right" class="btn btn-success">ADD CLASS</a>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -33,10 +33,10 @@
                 <table class="table table-bordered">
                   <thead>                  
                     <tr>
-                      <th>Date</th>
-                      <th>Title Announcement</th>
-                      <th>Teacher</th>
-                      <th>Subject</th>
+                     
+                      <th>ID</th>
+                      <th>Name Class</th>
+                      <th>Majors</th>
                      
                       <th><center>ACTION</center></th>
                     </tr>
@@ -46,15 +46,14 @@
                     @foreach($data as $a)
                     <?php $no++ ?>
                     <tr>
-                      <td>{{$a->created_at}}</td>
-                      <td>{{$a->title}}</td>
-                      <td>{{$a->teacher}}</td>
-                      <td>{{$a->subject}}</td>
+                    
+                      <td>{{$a->id}}</td>
+                      <td>{{$a->class_name}}</td>
+                      <td>{{$a->majors}}</td>
                       
-                      <td><a href="announcement/{{$a->id}}/detail" class="btn btn-primary" type="Button">DETAIL</a>
-                     <a class="btn btn-danger" type="Button" href="announcement/{{$a->id}}/delete">DELETE</a>
-                     <a class="btn btn-danger" type="Button" href="announcement/{{$a->id}}/edit">EDIT</a>
-                    </td>
+                      <td>
+                     <a class="btn btn-danger" type="Button" href="class/{{$a->id}}/delete">DELETE</a>
+                     </td>
                     </tr>
                    @endforeach
                   </tbody>

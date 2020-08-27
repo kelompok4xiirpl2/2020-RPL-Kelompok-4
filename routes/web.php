@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+Route::get('/home','HomeController@index')->middleware('Auth');
 
 Route::get('/','AnnouncementController@index')->middleware('auth');
 Route::get('/announcement/{id}/detail','AnnouncementController@detail')->middleware('auth');
@@ -26,3 +27,12 @@ Route::get('/announcement/{id}/delete','AnnouncementController@delete')->middlew
 
 Route::get('/announcement/{id}/edit','AnnouncementController@edit')->middleware('auth');
 Route::post('/announcement/{id}/edit','AnnouncementController@update')->middleware('auth');
+
+
+
+Route::get('/class','ClassController@index')->middleware('auth');
+
+Route::get('/class/create','ClassController@create')->middleware('auth');
+Route::post('/class/create','ClassController@store')->middleware('auth');
+
+Route::get('/class/{id}/delete','ClassController@delete')->middleware('auth');

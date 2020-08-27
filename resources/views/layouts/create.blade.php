@@ -11,19 +11,19 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Title Announcement</label>
-                    <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title">
                   </div>
 
                    
                   <div class="form-group">
                     <label for="exampleInputEmail1">Subject</label>
-                    <input name="subject" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input name="subject" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Subject">
                   </div>
 
                    
                   <div class="form-group">
                     <label for="exampleInputEmail1">Teacher</label>
-                    <input name="teacher" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input name="teacher" type="text" class="form-control" id="exampleInputEmail1" placeholder="Name Teacher">
                   </div>
                   <div class="form-group">
                     <textarea cols="140" rows="30" name="description"></textarea>
