@@ -14,6 +14,10 @@
                     <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title">
                   </div>
 
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">class</label>
+                    <input name="class" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter class">
+                  </div>
                    
                   <div class="form-group">
                     <label for="exampleInputEmail1">Subject</label>

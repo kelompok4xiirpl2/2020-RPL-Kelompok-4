@@ -21,6 +21,7 @@
                 <br><br><br><br><br><br><br><br><br><br>
 
                 <a href="{{URL::previous()}}" class="btn btn-danger">BACK</a>
+                <a href="/question" class="btn btn-primary">add question</a>
 
               </div><!-- /.card-body -->
             </div>

@@ -39,9 +39,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./questions" class="nav-link">
+                <a href="/question" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Questions</p>
+                  <p>Add Questions</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a href="/question/table" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Question Table</p>
                 </a>
               </li>
             </ul>

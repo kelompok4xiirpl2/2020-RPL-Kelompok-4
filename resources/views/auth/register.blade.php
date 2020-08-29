@@ -30,8 +30,8 @@
 
                             <div class="col-md-6">
                                <select class="form-control" name="class">
-                                @foreach($data as $data)
-                                <option value="{{$data->id}}">{{$data->class_name}}{{$data->majors}}</option>
+                                @foreach($classes as $class)
+                                <option value="{{$class->id}}">{{$class->class_name}}{{$class->majors}}</option>
                                 @endforeach
                             </select>
                             </div>

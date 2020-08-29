@@ -11,12 +11,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user')->insert([
+        DB::table('users')->insert([
         	'name'=>'Raihan Salman',
         	'email'=>'admin@gmail.com',
         	'id_class'=>'1',
-        	'password'=>hash:,
-        	'level'
+        	'password'=>Hash::make('admin'),
+        	'level'=>'1' ]);
 
     }
 }

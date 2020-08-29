@@ -41,6 +41,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $classes=\App\Classes::All();
+        return view('auth.register',['classes'=>$classes]);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -72,6 +78,6 @@ class RegisterController extends Controller
             'id_class'=>$data['class'],
             'level'=>1
         ]);
-        
+
     }
 }

@@ -35,6 +35,7 @@
                     <tr>
                       <th>Date</th>
                       <th>Title Announcement</th>
+                      <th>Class</th>
                       <th>Teacher</th>
                       <th>Subject</th>
                      
@@ -48,6 +49,7 @@
                     <tr>
                       <td>{{$a->created_at}}</td>
                       <td>{{$a->title}}</td>
+                      <td>{{$a->class}}</td>
                       <td>{{$a->teacher}}</td>
                       <td>{{$a->subject}}</td>
                       

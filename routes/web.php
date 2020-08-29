@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::get('/home','HomeController@index')->middleware('Auth');
+Route::get('/home','HomeController@index')->middleware('auth');
 
 Route::get('/','AnnouncementController@index')->middleware('auth');
 Route::get('/announcement/{id}/detail','AnnouncementController@detail')->middleware('auth');
@@ -30,9 +30,23 @@ Route::post('/announcement/{id}/edit','AnnouncementController@update')->middlewa
 
 
 
-Route::get('/class','ClassController@index')->middleware('auth');
+Route::get('/class','ClassController@index')->middleware('auth');	
 
 Route::get('/class/create','ClassController@create')->middleware('auth');
 Route::post('/class/create','ClassController@store')->middleware('auth');
 
 Route::get('/class/{id}/delete','ClassController@delete')->middleware('auth');
+
+Route::get('/question','QuestionController@index')->middleware('auth');
+Route::post('/question','QuestionController@store')->middleware('auth');
+
+
+Route::get('/question/table','TuestionController@index')->middleware('auth');
+
+Route::get('/question/{id}/answer','TuestionController@create')->middleware('auth');
+
+Route::post('/question/{id}/answer','TuestionController@store')->middleware('auth');
+
+Route::get('/question/{id}/viewanswer','TuestionController@detail_answer')->middleware('auth');
+
+Route::get('/question/{id}/delete','TuestionController@delete')->middleware('auth');

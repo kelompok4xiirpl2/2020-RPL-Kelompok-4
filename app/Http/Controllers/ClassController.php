@@ -49,10 +49,10 @@ class ClassController extends Controller
 
     public function delete($id)
     {
-        $data=\App\Classes::whereId($id)->first();
+       $data=\App\Classes::whereId($id)->first();
         $data->delete();
         return redirect('class');
-    }
+    } 
     public function show($id)
     {
         //

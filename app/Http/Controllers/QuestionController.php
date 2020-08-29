@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\cr;
 use Illuminate\Http\Request;
+use App\Question;
 
-class QuestionContoller extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class QuestionContoller extends Controller
      */
     public function index()
     {
-        //
+        return view('question.inputquestion');
     }
 
     /**
@@ -35,7 +36,18 @@ class QuestionContoller extends Controller
      */
     public function store(Request $request)
     {
-        //
+            
+        $id_user=auth()->user()->id;
+        $question=new Question();
+        $question->id_users=$id_user;
+        $question->question=$request->description;
+        $question->subject=$request->subject;
+        $question->save();
+
+
+
+
+        return redirect('question');
     }
 
     /**
