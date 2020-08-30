@@ -16,7 +16,8 @@ class CreateAnnouncementsTable extends Migration
         Schema::create('announcements', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('class');
+            $table->foreignId('class_id');
+            $table->foreign('class_id')->references('id')->on('classes');
             $table->string('subject');
             $table->string('teacher');
             $table->string('description');
