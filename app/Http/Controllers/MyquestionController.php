@@ -5,24 +5,20 @@ namespace App\Http\Controllers;
 use App\cr;
 use Illuminate\Http\Request;
 use App\Question;
-use App\Classes;
-use App\Subject;
 
-
-class QuestionController extends Controller
+class MyquestionController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name)
+    public function index()
     {
-      $subject= Subject::whereName($name)->first();
-      $subject_id = Subject::first()->id;
+        $data = Question::
 
-
-        return view('pages.students.inputquestion',['subject'=>$subject] , compact('subject_id'));
+        where('users_id','=',auth()->user()->id)->get();
+        return view('pages.students.myquestion', compact('data'));
     }
 
     /**
@@ -35,26 +31,20 @@ class QuestionController extends Controller
         //
     }
 
+     public function delete($id)
+    {
+        $data = Question::whereId($id)->delete();
+        return redirect('/myquestion');
+    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$nama)
+    public function store(Request $request)
     {
-            
-        $id_user=auth()->user()->id;
-        $question=new Question();
-        $question->users_id=auth()->user()->id;
-        $question->question=$request->description;
-        $question->subject=$nama;
-        $question->save();
-
-
-
-
-        return redirect('/myquestion');
+        //
     }
 
     /**

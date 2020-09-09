@@ -3,42 +3,48 @@
 @section('content1')
 
         
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
               <div class="card">
               <div class="card-header">
-                <h3 class="card-title">TABLE QUESTIONS</h3>
+                <h3 class="card-title"><b>TABLE QUESTIONS</b></h3>
+              </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table class="table table-bordered">
                   <thead>                  
                     <tr>
-                     
-                      <th>Nama</th>
-                      <th>Class</th>
-                      <th>Subject</th>
-                      <th>question</th>
+                      <th>NO</th>
+                      <th>NAME</th>
+                      <th>CLASS</th>
+                      <th>SUBJECT</th>
+                      <th>QUESTION</th>
                      
                       <th><center>ACTION</center></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $no=0; ?>
-                    @foreach($tuestion as $a)
-                    <?php $no++ ?>
+                    
+                    @foreach($tuestion as $no=>$a)
+                    
                     <tr>
-                      
+                      <td>{{$no+1}}</td>
                       <td>{{$a->name}}</td>
                       <td>{{$a->class_name}}</td>
                       <td>{{$a->subject}}</td>
                       <td>{{$a->question}}</td>
-                      
-                      <td><a href="/question/{{$a->id}}/answer" class="btn btn-primary" type="Button">ANSWER</a>
-                        <a href="/question/{{$a->id}}/answer" class="btn btn-primary" type="Button">View Abswer</a>
-                      <a href="/question/{{$a->id}}/delete" class="btn btn-primary" type="Button">DELETE</a>
+                      <td>
+
+                          
+                      <a href="/admin/question/{{$a->id}}/delete" class="btn btn-danger btn-md" type="Button">DELETE</a>
+
+                    @if($a->answer==null)
+
+                      <a href="/admin/question/{{$a->id}}/answer" class="btn btn-success btn-md" type="Button">ANSWER</a>  
+                      @endif
+                     
 
                     </td>
                     </tr>

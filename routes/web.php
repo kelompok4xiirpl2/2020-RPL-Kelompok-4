@@ -15,38 +15,63 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::get('/home','HomeController@index')->middleware('auth');
+route::get('/',function(){
+	return view('auth.login');
+});
 
-Route::get('/','AnnouncementController@index')->middleware('auth');
-Route::get('/announcement/{id}/detail','AnnouncementController@detail')->middleware('auth');
+Route::group(['middleware' => ['web','auth','back']],function(){
+Route::group(['middleware' => ['roles:1']],function(){
 
-Route::get('/announcement/create','AnnouncementController@create')->middleware('auth');
-Route::post('/announcement/create','AnnouncementController@store')->middleware('auth');
+Route::get('/admin','HomeController@index');
 
-Route::get('/announcement/{id}/delete','AnnouncementController@delete')->middleware('auth');
-
-Route::get('/announcement/{id}/edit','AnnouncementController@edit')->middleware('auth');
-Route::post('/announcement/{id}/edit','AnnouncementController@update')->middleware('auth');
+//admin
 
 
-
-Route::get('/class','ClassController@index')->middleware('auth');	
-
-Route::get('/class/create','ClassController@create')->middleware('auth');
-Route::post('/class/create','ClassController@store')->middleware('auth');
-
-Route::get('/class/{id}/delete','ClassController@delete')->middleware('auth');
-
-Route::get('/question','QuestionController@index')->middleware('auth');
-Route::post('/question','QuestionController@store')->middleware('auth');
+Route::get('/admin/announcement','AnnouncementController@index');
+Route::get('admin/announcement/create','AnnouncementController@create');
+Route::post('admin/announcement/create','AnnouncementController@store');
+Route::get('admin/announcement/{id}/delete','AnnouncementController@delete');
+Route::get('admin/announcement/{id}/edit','AnnouncementController@edit');
+Route::post('admin/announcement/edit','AnnouncementController@update');
 
 
-Route::get('/question/table','TuestionController@index')->middleware('auth');
 
-Route::get('/question/{id}/answer','TuestionController@create')->middleware('auth');
+	
+Route::get('/admin/class','ClassController@index');
+Route::get('admin/class/create','ClassController@create');
+Route::post('admin/class/create','ClassController@store');
+Route::get('admin/class/{id}/delete','ClassController@delete');
 
-Route::post('/question/{id}/answer','TuestionController@store')->middleware('auth');
 
-Route::get('/question/{id}/viewanswer','TuestionController@detail_answer')->middleware('auth');
 
-Route::get('/question/{id}/delete','TuestionController@delete')->middleware('auth');
+
+
+Route::get('admin/question/table','TuestionController@index');
+Route::post('admin/question/{name}','QuestionController@store');
+Route::get('admin/question/{id}/answer','TuestionController@create');
+Route::post('admin/question/{id}/answer','TuestionController@store');
+Route::get('admin/question/{id}/delete','TuestionController@delete');
+
+
+
+});
+Route::group(['middleware' => ['roles:2']],function(){
+Route::get('/students','SiswaController@index');
+Route::get('/students/announcement','SiswaController@index');
+Route::get('students/myquestion/{id}/delete','MyquestionController@delete');
+
+Route::get('/students/question/{name}','QuestionController@index');
+Route::post('/students/question/{name}','QuestionController@store');
+Route::get('/students/question/{id}/viewanswer','TuestionController@detail_answer');
+
+});});
+
+
+
+
+
+Route::get('/home','HomeController@index');
+Route::get('admin/announcement/{id}/detail','AnnouncementController@detail');
+Route::get('/students/announcement/{id}/detail','AnnouncementController@detail');
+Route::get('/myquestion','MyquestionController@index');
+Route::get('admin/question/{id}/viewanswer','MyquestionController@index');

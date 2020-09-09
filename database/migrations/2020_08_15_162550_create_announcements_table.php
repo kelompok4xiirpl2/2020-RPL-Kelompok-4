@@ -18,10 +18,14 @@ class CreateAnnouncementsTable extends Migration
             $table->string('title');
             $table->foreignId('class_id');
             $table->foreign('class_id')->references('id')->on('classes');
-            $table->string('subject');
-            $table->string('teacher');
+            $table->foreignId('teacher_id');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
+            $table->foreignId('subject_id');
+            $table->foreign('subject_id')->references('id')->on('subjects');
             $table->string('description');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
+            
         });
     }
 

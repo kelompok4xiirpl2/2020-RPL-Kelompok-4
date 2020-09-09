@@ -12,11 +12,20 @@ class create_users_seeder extends Seeder
     public function run()
     {
          DB::table('users')->insert([
-        	'name'=>'Raihan Salman',
+            'role_id'=>'1',
+        	'name'=>'Admin',
         	'email'=>'admin@gmail.com',
-        	'class_id'=>'1',
         	'password'=>Hash::make('admin'),
         	'level'=>'1'
         	]);
+
+           DB::table('users')->insert([
+            'role_id'=>'2',
+            'name'=>'Student',
+            'class_id'=>'1',
+            'email'=>'student@gmail.com',
+            'password'=>Hash::make('student'),
+            'level'=>'2'
+            ]);
     }
 }

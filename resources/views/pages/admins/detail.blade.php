@@ -14,14 +14,16 @@
                 </div>
               </div><!-- /.card-header -->
               <div class="card-body">
-               <b><h5> Judul          :  {{$data->title}}<br>
-                Mata Pelajaran :  {{$data->subject}}<br>
-                Nama Guru      :  {{$data->teacher}}<br><br><br></b></h5>
-                {{$data->description}}
+             
+                <b><h5>Title Announcement : {{$data->title}}<br>
+                       Subject            : {{$data->name}}<br>
+                       Teacher Name       : {{$data->teacher_name}}<br><br><br></b></h5>
+                       {{$data->description}}
                 <br><br><br><br><br><br><br><br><br><br>
+                
+             
 
-                <a href="{{URL::previous()}}" class="btn btn-danger">BACK</a>
-                <a href="/question" class="btn btn-primary">add question</a>
+               
 
               </div><!-- /.card-body -->
             </div>

@@ -1,11 +1,11 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+   <!--  <a href="index3.html" class="brand-link">
       <img src="/dashboard/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">@if(auth()->user()->level==1) FORM ADMIN @else FORM SISWA @endif </span>
     </a>
-
+ -->
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -18,11 +18,15 @@
         </div>
       </div>
 
+      <center><p style="color: white;">{{Auth::user()->name}}</p></center>
+
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
+
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -31,25 +35,25 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/class" class="nav-link active">
+
+             
+          <li class="nav-item">
+                <a href="{{URL::to('students/announcement')}}" class="nav-link {{Request::path()==='students/announcement'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Class</p>
+                  <p>Announcement Lists</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/question" class="nav-link">
+                <a href="/myquestion" class="nav-link {{Request::path()==='myquestion'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Questions</p>
+                  <p>My Question</p>
                 </a>
               </li>
-               <li class="nav-item">
-                <a href="/question/table" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Question Table</p>
-                </a>
-              </li>
+              
+               
+      
             </ul>
           
         </ul>
@@ -58,3 +62,5 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
+ 

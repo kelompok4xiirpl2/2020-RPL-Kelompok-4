@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Classes;
+use App\Announcement;
 
 class ClassController extends Controller
 {
@@ -15,7 +16,7 @@ class ClassController extends Controller
     public function index()
     {
         $data = Classes::all();
-        return view('class.index', compact('data'));
+        return view('pages.class.index', compact('data'));
     }
 
     /**
@@ -25,7 +26,7 @@ class ClassController extends Controller
      */
     public function create()
     {
-        return view('class.create');
+        return view('pages.class.create');
     }
 
     /**
@@ -37,7 +38,7 @@ class ClassController extends Controller
     public function store(Request $request)
     {
         $data = \App\Classes::create($request->all());
-        return redirect('class');
+        return redirect('/admin/class');
     }
 
     /**
@@ -49,9 +50,21 @@ class ClassController extends Controller
 
     public function delete($id)
     {
+        $announ=Announcement::whereClass_id($id)->first();
+        $student=\App\User::whereClass_id($id)->first();
+        if($announ){
+            return redirect('/admin/class')->with('gagal_announ','gagal');
+        }elseif ($student) {
+            return redirect('/admin/class')->with('gagal_user','gagal');
+        }else{
+
+
+
+
        $data=\App\Classes::whereId($id)->first();
         $data->delete();
-        return redirect('class');
+        return redirect('/admin/class');
+    }   
     } 
     public function show($id)
     {

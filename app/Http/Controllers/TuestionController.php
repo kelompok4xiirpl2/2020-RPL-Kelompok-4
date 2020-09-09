@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\cr;
 use Illuminate\Http\Request;
 use App\Question;
+use App\User;
 
 class TuestionController extends Controller
 {
@@ -15,12 +16,16 @@ class TuestionController extends Controller
      */
     public function index()
     {
-         $tuestion = Question::
-         join('users','users.id','=','questions.id_users')->
-         join('classes','classes.id','=','users.id_class')->
-         select('users.name','questions.*','classes.class_name')->
-         get();
-        return view('question.tablequestion', compact('tuestion'));
+         $tuestion = Question::join('users','questions.users_id','=','users.id')
+                             ->join('classes','questions.users_id','=','classes.id')
+                             ->select('users.name','classes.class_name','questions.*')
+                             ->get();
+
+           $user= User::join('roles','users.role_id','=','roles.id')
+                      ->select('roles.name')
+                      ->where('users.id','=',Auth()->user()->id)->first();
+
+        return view('pages.question.tablequestion', compact('tuestion','user'));
     }
 
     /**
@@ -30,8 +35,8 @@ class TuestionController extends Controller
      */
     public function create($id)
     {
-        $data=\App\Question::whereId($id)->first();
-        return view('question.answer',['data'=>$data]);
+        $data=Question::whereId($id)->first();
+        return view('pages.question.answer',['data'=>$data]);
     }
 
     /**
@@ -42,9 +47,10 @@ class TuestionController extends Controller
      */
     public function store(Request $request,$id)
     {
-        $question= \App\Question::whereId($id)->first();
+        $question= Question::whereId($id)->first();
         $question->answer=$request->answer;
         $question->update();
+        return redirect('/admin/question/table');
 
     }
 
@@ -64,7 +70,7 @@ class TuestionController extends Controller
      public function detail_answer($id)
     {
          $question= \App\Question::whereId($id)->first();
-        return view('question.viewanswer',['data'=>$question]);
+        return view('pages.students.viewanswer',['data'=>$question]);
     }
 
 
@@ -86,7 +92,7 @@ class TuestionController extends Controller
     {
         $data=\App\Question::whereId($id)->first();
         $data->delete();
-        return redirect('/question/table');
+        return redirect('/admin/question/table');
     }
 
     /**

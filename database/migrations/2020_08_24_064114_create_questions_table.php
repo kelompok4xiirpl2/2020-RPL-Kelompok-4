@@ -20,6 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->foreign('users_id')->references('id')->on('users');
             $table->string('subject');
             $table->string('answer')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

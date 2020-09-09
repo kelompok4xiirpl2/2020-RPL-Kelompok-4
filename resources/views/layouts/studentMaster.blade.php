@@ -2,10 +2,9 @@
 <html>
 
 
-@include('layouts.admins.head')
-@include('layouts.admins.navbar')
-
-@include('layouts.admins.sidebar')
+@include('layouts.students.head')
+@include('layouts.students.navbar')
+@include('layouts.students.sidebar')
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -31,6 +30,6 @@
 
 
 
-@include('layouts.admins.js')
+@include('layouts.students.js')
 
 </html>
