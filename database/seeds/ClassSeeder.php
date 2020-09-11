@@ -51,6 +51,10 @@ class ClassSeeder extends Seeder
             'majors'=>'Rekayasa Perangkat Lunak'
         ]);
 
+        
+        
+
+
        
         	
     }

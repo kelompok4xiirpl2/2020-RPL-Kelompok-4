@@ -16,7 +16,6 @@ class create_users_seeder extends Seeder
         	'name'=>'Admin',
         	'email'=>'admin@gmail.com',
         	'password'=>Hash::make('admin'),
-        	'level'=>'1'
         	]);
 
            DB::table('users')->insert([
@@ -25,7 +24,7 @@ class create_users_seeder extends Seeder
             'class_id'=>'1',
             'email'=>'student@gmail.com',
             'password'=>Hash::make('student'),
-            'level'=>'2'
+            
             ]);
     }
 }

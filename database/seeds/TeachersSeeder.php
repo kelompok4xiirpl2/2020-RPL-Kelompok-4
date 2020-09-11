@@ -32,8 +32,62 @@ class TeachersSeeder extends Seeder
         ]);
 
          DB::table('teachers')->insert([
-        	'teacher_name' => 'Leni Maulani, S.Pd',
+        	'teacher_name' => 'Agfie Nurani Hanifah, S.Pd',
         	
+        ]);
+
+          DB::table('teachers')->insert([
+            'teacher_name' => 'Siti Saadah, S.Pd',
+            
+        ]);
+
+          DB::table('teachers')->insert([
+            'teacher_name' => 'Dede Suryana, A,Md',
+            
+        ]);
+          DB::table('teachers')->insert([
+            'teacher_name' => 'Rosmelia, S.Pd',
+            
+        ]);
+          DB::table('teachers')->insert([
+            'teacher_name' => 'Leni Maulani, S.Pd',
+            
+        ]);
+          DB::table('teachers')->insert([
+            'teacher_name' => 'Deni Setiawan, S.ST',
+            
+        ]);
+          DB::table('teachers')->insert([
+            'teacher_name' => 'Arie Martanto, ST',
+            
+        ]);
+          DB::table('teachers')->insert([
+            'teacher_name' => 'H.Dayat Hidayat, S.Pd',
+            
+        ]);
+           DB::table('teachers')->insert([
+            'teacher_name' => 'Agus Sofyan, S.E',
+            
+        ]);
+           DB::table('teachers')->insert([
+            'teacher_name' => 'Hamdan Firmansyah, S.Pd',
+            
+        ]);
+           DB::table('teachers')->insert([
+            'teacher_name' => 'Riana Budianti, S.Sos',
+            
+        ]);
+           DB::table('teachers')->insert([
+            'teacher_name' => 'Annisa Komalasari',
+            
+        ]);
+           DB::table('teachers')->insert([
+            'teacher_name' => 'Roslaila',
+            
+        ]);
+           DB::table('teachers')->insert([
+            'teacher_name' => '-',
+            
         ]);
 
 
